@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>201901155 Assignment2</title>
+    <style>
+        .w3-container {
+            background-color: black;
+            width: 40%;
+            border-radius: 25px;
+            margin: auto;
+            margin-top: 400px;
+            padding: 10px;
+        }
+        .drop {
+            margin-left: 140px;
+
+        }
+        .checkage {
+            color: white;
+            margin-left: 140px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body style="background-color: lightblue;">
+    <div class="w3-container">
+        <div id="inputbox" style="margin-left: 140px;">
+            <input placeholder="Enter Your Age" type="age" id="age" onchange="check();">
+        </div>
+        <h4 class="checkage" id="err_disp">Not Eligible to Vote</h4>
+        <div id="eligible" style="display: none;">
+            <form onsubmit="finish();">
+                <label style="margin-left: 100px;">Select the party you want to Vote For</label>
+                <div class="drop">
+                    <select style="width: 206px;">
+                        <option selected disabled>Select</option>
+                        <option value="ADMK">DMK</option>
+                        <option value="DMK">ADMK</option>
+                        <option value="BJP">BJP</option>
+                        <option value="NOTA">NOTA</option>
+                    </select>
+                </div><br>
+                <button style="margin-left:200px" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function finish(){
+            alert("Vote Recorded");
+        }
+        function check() {
+            let age = parseInt(document.getElementById("age").value);
+            document.getElementById("inputbox").style.display = 'none';
+            if (age > 1 && age < 18) {
+                document.getElementById("err_disp").style.visibility = 'visible';
+            }
+            else if (age >=18) {
+                document.getElementById("eligible").style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
